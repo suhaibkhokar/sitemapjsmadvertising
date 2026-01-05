@@ -130,7 +130,7 @@ export default function HomePage() {
                 ))}
               </ul>
 
-              <a href="/profile.pdf" className="mt-6 inline-block text-red-500 font-semibold">
+              <a href="/Profile.pdf" className="mt-6 inline-block text-red-500 font-semibold">
                 Read more →
               </a>
             </div>
