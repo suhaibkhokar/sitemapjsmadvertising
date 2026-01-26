@@ -1,5 +1,9 @@
-
+# *
 User-agent: *
 Allow: /
 
+# Host
+Host: https://jsmadvertising.com
+
+# Sitemaps
 Sitemap: https://jsmadvertising.com/sitemap.xml
