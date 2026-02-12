@@ -14,10 +14,32 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Metadata
+// ✅ Add SEO metadata here
 export const metadata: Metadata = {
   title: "JSM Advertising Company",
   description: "Professional Advertising & Web Solutions",
+  icons: { icon: "/favicon.png" },
+  openGraph: {
+    title: "JSM Advertising Company",
+    description: "Professional Advertising & Web Solutions",
+    url: "https://jsmadvertising.com",
+    siteName: "JSM Advertising",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JSM Advertising Company",
+    description: "Professional Advertising & Web Solutions",
+    images: ["/og-image.png"],
+  },
 };
 
 // Root Layout
