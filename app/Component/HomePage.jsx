@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import PortfolioSection from "./PortfolioSection";
 
 export default function HomePage() {
+  
   const services = [
     {
       title: "Sign Board Design & Installation",
