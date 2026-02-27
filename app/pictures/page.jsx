@@ -23,6 +23,14 @@ export default function PicturesPage() {
     "/neonsign3.webp",
   ];
 
+  const expoCenterImages = [
+    "/expo.jpeg",
+  "/expo1.jpeg",
+  "/expo2.jpeg",
+  "/expo3.jpeg",
+  "/expo4.jpeg",
+  "/expo5.jpeg",
+];
   return (
     <div className="relative min-h-screen bg-gray-950 text-white px-4 sm:px-8 py-16 overflow-hidden">
 
@@ -100,8 +108,8 @@ export default function PicturesPage() {
         Neon Sign Board
       </motion.h2>
 
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 relative z-10">
-        {neonSignImages.map((img, i) => (
+<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-20 relative z-10">        
+  {neonSignImages.map((img, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, scale: 0.9 }}
@@ -123,6 +131,40 @@ export default function PicturesPage() {
           </motion.div>
         ))}
       </div>
+      {/* ================= Expo Center Project ================= */}
+<motion.h2
+  initial={{ opacity: 0, x: -30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6 }}
+  viewport={{ once: true }}
+  className="text-2xl font-bold text-blue-500 mb-6 border-l-4 border-blue-500 pl-4 relative z-10"
+>
+  Expo Center Project
+</motion.h2>
+
+<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-20 relative z-10">
+  {expoCenterImages.map((img, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ delay: i * 0.08 }}
+      viewport={{ once: true }}
+      className="bg-gray-900/70 rounded-xl shadow-lg overflow-hidden group border border-gray-700"
+    >
+      <img
+        src={img}
+        alt="Expo Center Project"
+        className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+      />
+      <div className="p-3 text-center">
+        <h3 className="font-semibold text-blue-400">
+          Expo Center Project
+        </h3>
+      </div>
+    </motion.div>
+  ))}
+</div>
 
     </div>
   );

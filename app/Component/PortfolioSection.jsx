@@ -18,6 +18,10 @@ export default function PortfolioSection() {
     { src: "/workimages9.jpg", name: "3D Board", desc: "Expertly designed 3D boards with finishing.", rating: 5 },
     { src: "/workimages10.webp", name: "3D Board", desc: "High-end 3D boards with strong durability.", rating: 5 },
     { src: "/workimages11.webp", name: "3D SMD Board", desc: "Premium 3D signage with professional installation.", rating: 5 },
+        { src: "/expo.jpeg", name: "Expo Center Project", desc: "Modern 3D boards for premium branding.", rating: 5 },
+    { src: "/expo1.jpeg", name: "Expo Center Project", desc: "Expertly designed 3D boards with finishing.", rating: 5 },
+    { src: "/expo4.jpeg", name: "Expo Center Project", desc: "High-end 3D boards with strong durability.", rating: 5 },
+    { src: "/expo5.jpeg", name: "Expo Center Project", desc: "Premium 3D signage with professional installation.", rating: 5 },
   ];
 
   const [selectedProject, setSelectedProject] = useState(null);
