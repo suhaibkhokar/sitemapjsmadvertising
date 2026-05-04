@@ -63,64 +63,86 @@ export default function HomePage() {
         <link rel="canonical" href="https://jsmadvertising.com/" />
       </Head>
 
-      <div className="min-h-screen bg-gray-900 text-white">
-        {/* HERO SECTION */}
-        <header className="relative overflow-hidden bg-gradient-to-r from-black via-gray-900 to-gray-800 text-white">
-          <div className="container mx-auto px-6 lg:px-12 py-20 flex flex-col md:flex-row items-center justify-between gap-10">
-
-            {/* LEFT */}
+      <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white relative overflow-x-hidden">
+        {/* HERO SECTION - Heavy Animated */}
+        <header className="relative overflow-visible min-h-[80vh] flex items-center justify-center">
+          {/* Animated Gradient Blobs */}
+          <motion.div
+            className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-red-500/40 to-yellow-400/30 rounded-full blur-3xl animate-pulse z-0"
+            initial={{ scale: 0.7, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.2 }}
+          />
+          <motion.div
+            className="absolute bottom-0 right-0 w-[32rem] h-[32rem] bg-gradient-to-tr from-yellow-400/30 to-pink-500/30 rounded-full blur-3xl animate-pulse z-0"
+            initial={{ scale: 0.7, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.4, delay: 0.2 }}
+          />
+          <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 px-6 lg:px-12 py-24">
+            {/* LEFT - Animated Text */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
+              transition={{ duration: 1, type: 'spring', stiffness: 80 }}
               className="max-w-xl"
             >
-              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
-                <span className="text-red-500">JSM Advertising</span> – Sign Board &
-                Outdoor Advertising Company in Pakistan
+              <h1 className="text-5xl md:text-6xl font-extrabold leading-tight bg-gradient-to-r from-red-500 via-yellow-400 to-pink-500 bg-clip-text text-transparent drop-shadow-2xl animate-pulse">
+                JSM Advertising
               </h1>
-
-              <p className="mt-4 text-gray-300 text-base md:text-lg leading-relaxed">
-                From creative sign boards to high-impact outdoor advertising — JSM
-                Advertising helps you attract attention, build trust, and grow
-                your business.
-              </p>
-
-              <div className="mt-6 flex gap-4">
-                <a
+              <motion.p
+                className="mt-6 text-gray-200 text-xl md:text-2xl font-medium leading-relaxed drop-shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 1 }}
+              >
+                From creative sign boards to high-impact outdoor advertising — <span className="text-yellow-400 font-bold">JSM Advertising</span> helps you attract attention, build trust, and grow your business.
+              </motion.p>
+              <div className="mt-8 flex gap-6">
+                <motion.a
                   href="#contact"
-                  className="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg transition-transform hover:scale-105"
+                  className="bg-red-600 hover:bg-yellow-400 hover:text-black text-white px-8 py-4 rounded-2xl font-bold shadow-xl text-lg transition-transform hover:scale-110 animate-bounce"
+                  whileHover={{ scale: 1.1, rotate: 2 }}
                 >
                   Get a Quote
-                </a>
-
-                <a
+                </motion.a>
+                <motion.a
                   href="#portfolio"
-                  className="border border-red-500 text-red-400 px-6 py-3 rounded-xl font-semibold hover:bg-red-600 hover:text-white transition-all"
+                  className="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-yellow-400 hover:text-black transition-all hover:scale-110 shadow-lg"
+                  whileHover={{ scale: 1.1, rotate: -2 }}
                 >
                   View Our Work
-                </a>
+                </motion.a>
               </div>
             </motion.div>
-
-            {/* RIGHT IMAGE */}
+            {/* RIGHT - Animated Image */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
+              initial={{ opacity: 0, x: 60, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 1, type: 'spring', stiffness: 80 }}
               className="relative w-full md:w-1/2 flex justify-center"
             >
-              <div className="relative w-80 h-80 md:w-[420px] md:h-[420px] rounded-full bg-gradient-to-tr from-red-600 to-yellow-500 p-[4px] shadow-[0_0_40px_rgba(255,0,0,0.4)]">
+              <motion.div
+                className="relative w-80 h-80 md:w-[420px] md:h-[420px] rounded-full bg-gradient-to-tr from-red-600 to-yellow-500 p-[6px] shadow-[0_0_60px_rgba(255,0,0,0.4)] animate-spin-slow"
+                initial={{ rotate: -10 }}
+                animate={{ rotate: 0 }}
+                transition={{ duration: 1.2, type: 'spring', stiffness: 60 }}
+              >
                 <div className="w-full h-full bg-black rounded-full flex items-center justify-center overflow-hidden">
-                  <img
+                  <motion.img
                     src="/Jsm Home .jpg"
                     alt="JSM Advertising sign board and outdoor branding project in Pakistan"
-                    className="object-cover w-full h-full opacity-90 hover:scale-105 transition-transform duration-500"
+                    className="object-cover w-full h-full opacity-95 hover:scale-110 transition-transform duration-700"
+                    whileHover={{ scale: 1.08, rotate: 2 }}
                   />
                 </div>
-              </div>
-
-              <div className="absolute -z-10 blur-3xl opacity-30 w-72 h-72 bg-red-600 rounded-full top-10 right-0"></div>
+              </motion.div>
+              <motion.div
+                className="absolute -z-10 blur-3xl opacity-40 w-72 h-72 bg-red-600 rounded-full top-10 right-0 animate-pulse"
+                initial={{ scale: 0.7, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1.2, delay: 0.3 }}
+              />
             </motion.div>
           </div>
         </header>

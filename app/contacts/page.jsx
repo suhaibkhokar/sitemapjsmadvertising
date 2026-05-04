@@ -33,71 +33,97 @@ export default function ContactPage() {
   };
 
   return (
-    <section className="min-h-screen bg-gray-950 text-white px-6 py-16">
-      
+    <section className="min-h-screen text-white px-6 py-16 flex flex-col items-center justify-center relative overflow-hidden">
+      {/* Animated Colorful Layered Backgrounds */}
+      <div className="absolute inset-0 w-full h-full -z-10 pointer-events-none">
+        <motion.div
+          className="absolute top-0 left-0 w-full h-40 bg-gradient-to-r from-blue-500/30 via-yellow-400/20 to-pink-500/30 blur-2xl animate-pulse"
+          initial={{ x: -200 }}
+          animate={{ x: [0, 100, -100, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+        />
+        <motion.div
+          className="absolute top-32 left-0 w-full h-32 bg-gradient-to-r from-pink-500/20 via-blue-400/20 to-yellow-400/20 blur-2xl animate-pulse"
+          initial={{ x: 100 }}
+          animate={{ x: [-100, 0, 100, -100] }}
+          transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-r from-yellow-400/20 via-blue-500/20 to-pink-500/20 blur-2xl animate-pulse"
+          initial={{ x: 0 }}
+          animate={{ x: [100, -100, 0, 100] }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+        />
+      </div>
+
       {/* Back Button */}
-      <Link href="/" className="absolute top-6 left-6">
-        <div className="flex items-center gap-2 bg-gray-800 px-4 py-2 rounded-full border border-gray-700">
-          <ArrowLeft size={18} className="text-blue-400" />
-          <span>Back to Home</span>
-        </div>
+      <Link href="/" className="fixed top-6 left-6 z-50 flex items-center gap-2 bg-black/80 px-4 py-2 rounded-full shadow-lg border border-blue-400/30 hover:bg-blue-400 hover:text-black transition">
+        <ArrowLeft size={18} className="text-blue-400" />
+        <span className="text-sm font-semibold">Back to Home</span>
       </Link>
 
+      {/* Animated Heading */}
       <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-5xl font-bold text-center mb-10"
+        initial={{ opacity: 0, y: -30, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1, type: "spring", stiffness: 80 }}
+        className="text-4xl md:text-5xl font-black tracking-tight text-white drop-shadow-xl relative mb-10"
       >
-        Contact <span className="text-blue-400">Us</span>
+        <span className="relative z-10">Contact <span className="text-blue-400">JSM Advertising</span></span>
+        <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-2/3 h-2 bg-gradient-to-r from-blue-500 via-yellow-400 to-pink-500 rounded-full blur-sm opacity-60"></span>
       </motion.h1>
 
-      <div className="max-w-xl mx-auto bg-gray-900 p-8 rounded-xl border border-gray-700 shadow-xl space-y-6">
-
+      {/* Glassmorphic Animated Form */}
+      <motion.div
+        initial={{ opacity: 0, y: 40, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1, type: "spring", stiffness: 80 }}
+        className="max-w-xl w-full mx-auto glass p-10 rounded-3xl border-2 border-blue-400/20 shadow-2xl space-y-8 backdrop-blur-xl bg-gradient-to-br from-blue-900/60 via-black/60 to-pink-900/40"
+        style={{ boxShadow: '0 8px 32px 0 rgba(59, 130, 246, 0.10)' }}
+      >
         {/* Name */}
         <div>
-          <label className="text-sm text-gray-400">Your Name</label>
+          <label className="text-sm text-blue-300 font-semibold">Your Name</label>
           <input
             type="text"
             placeholder="Enter your full name"
-            className="w-full px-4 py-3 mt-1 rounded-lg bg-black border border-gray-700 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 mt-1 rounded-lg bg-black/70 border border-blue-400/30 focus:border-blue-400 outline-none text-white font-semibold shadow-inner"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
         </div>
-
         {/* Client Phone */}
         <div>
-          <label className="text-sm text-gray-400">Your Phone Number</label>
+          <label className="text-sm text-blue-300 font-semibold">Your Phone Number</label>
           <input
             type="number"
             placeholder="03XX-XXXXXXX"
-            className="w-full px-4 py-3 mt-1 rounded-lg bg-black border border-gray-700 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 mt-1 rounded-lg bg-black/70 border border-blue-400/30 focus:border-blue-400 outline-none text-white font-semibold shadow-inner"
             value={clientNumber}
             onChange={(e) => setClientNumber(e.target.value)}
           />
         </div>
-
         {/* Message */}
         <div>
-          <label className="text-sm text-gray-400">Your Message</label>
+          <label className="text-sm text-blue-300 font-semibold">Your Message</label>
           <textarea
             rows="5"
             placeholder="Write about your project..."
-            className="w-full px-4 py-3 mt-1 rounded-lg bg-black border border-gray-700 focus:border-blue-500 outline-none"
+            className="w-full px-4 py-3 mt-1 rounded-lg bg-black/70 border border-blue-400/30 focus:border-blue-400 outline-none text-white font-semibold shadow-inner"
             value={clientMessage}
             onChange={(e) => setClientMessage(e.target.value)}
           ></textarea>
         </div>
-
         {/* Send Button */}
-        <button
+        <motion.button
           onClick={sendToWhatsApp}
-          className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg flex items-center justify-center gap-2"
+          whileHover={{ scale: 1.05, background: 'linear-gradient(90deg,#38bdf8,#facc15,#ec4899)' }}
+          whileTap={{ scale: 0.97 }}
+          className="w-full bg-gradient-to-r from-blue-500 via-yellow-400 to-pink-500 hover:from-pink-500 hover:to-blue-500 text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 text-lg shadow-xl transition-all duration-300 animate-pulse"
         >
-          <MessageCircle size={20} /> Send to WhatsApp Business
-        </button>
-
-      </div>
+          <MessageCircle size={22} /> Send to WhatsApp Business
+        </motion.button>
+      </motion.div>
     </section>
   );
 }

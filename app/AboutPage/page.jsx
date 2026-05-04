@@ -12,52 +12,115 @@ import {
 
 export default function AboutPage() {
   return (
-    <div className="relative min-h-screen bg-gray-900 text-white px-6 py-20 overflow-hidden">
-
-      {/* 🔥 Glowing Background Effects */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-red-500/20 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl animate-pulse"></div>
+    <section className="relative min-h-screen text-white px-0 py-0 overflow-hidden flex flex-col items-center justify-center">
+      {/* Animated Colorful Layered Backgrounds */}
+      <div className="absolute inset-0 w-full h-full -z-10 pointer-events-none">
+        <motion.div
+          className="absolute top-0 left-0 w-full h-40 bg-gradient-to-r from-red-500/30 via-yellow-400/20 to-pink-500/30 blur-2xl animate-pulse"
+          initial={{ x: -200 }}
+          animate={{ x: [0, 100, -100, 0] }}
+          transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+        />
+        <motion.div
+          className="absolute top-32 left-0 w-full h-32 bg-gradient-to-r from-pink-500/20 via-blue-400/20 to-yellow-400/20 blur-2xl animate-pulse"
+          initial={{ x: 100 }}
+          animate={{ x: [-100, 0, 100, -100] }}
+          transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-r from-yellow-400/20 via-red-500/20 to-pink-500/20 blur-2xl animate-pulse"
+          initial={{ x: 0 }}
+          animate={{ x: [100, -100, 0, 100] }}
+          transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+        />
+      </div>
 
       {/* Back Button */}
-      <Link href="/" className="absolute top-6 left-6 z-20">
-        <div className="flex items-center gap-2 bg-gray-800/60 backdrop-blur-lg px-4 py-2 rounded-full 
-        hover:bg-gray-700 transition border border-gray-700">
-          <ArrowLeft size={18} className="text-red-400" />
-          <span className="text-sm">Back to Home</span>
-        </div>
+      <Link href="/" className="fixed top-6 left-6 z-50 flex items-center gap-2 bg-black/80 px-4 py-2 rounded-full shadow-lg border border-yellow-400/30 hover:bg-yellow-400 hover:text-black transition">
+        <ArrowLeft size={18} className="text-yellow-400" />
+        <span className="text-sm font-semibold">Back to Home</span>
       </Link>
 
-      {/* Heading */}
+      {/* Animated Heading */}
       <motion.h1
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        className="text-5xl font-extrabold text-center mb-4"
+        initial={{ opacity: 0, y: -40, scale: 0.95 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{ duration: 1, type: "spring", stiffness: 80 }}
+        className="text-5xl md:text-6xl font-black tracking-tight text-center mb-6 bg-gradient-to-r from-red-500 via-yellow-400 to-pink-500 bg-clip-text text-transparent drop-shadow-xl relative"
       >
-        About <span className="text-red-500">JSM Advertising</span>
+        About <span className="text-yellow-400">JSM Advertising</span>
+        <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-2/3 h-2 bg-gradient-to-r from-red-500 via-yellow-400 to-pink-500 rounded-full blur-sm opacity-60"></span>
       </motion.h1>
 
+      {/* Animated Description */}
       <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.8 }}
-        className="text-gray-300 text-center max-w-3xl mx-auto text-lg"
+        className="text-gray-200 text-center max-w-2xl mx-auto text-lg font-medium mb-8"
       >
-        We are a creative advertising & signage company based in Lahore.  
-        Experts in <span className="text-red-400 font-semibold">
-        LED Boards, Signage, 3D Letters, Acrylic Boards, Branding & Digital Printing.</span>  
-        Delivering powerful designs for 10+ years!
+        We are a creative advertising & signage company based in Lahore.<br />
+        <span className="text-yellow-400 font-semibold">LED Boards, Signage, 3D Letters, Acrylic Boards, Branding & Digital Printing.</span><br />
+        Delivering powerful designs for <span className="text-pink-400 font-bold">10+ years!</span>
       </motion.p>
 
-      {/* 🔥 Auto-Scrolling Services Strip */}
-      <div className="mt-10 overflow-hidden whitespace-nowrap border-y border-gray-700 py-4">
+      {/* Animated Services Strip */}
+      <div className="mt-4 overflow-hidden whitespace-nowrap border-y border-yellow-400/20 py-4 w-full">
         <motion.div
           animate={{ x: ["0%", "-100%"] }}
           transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
-          className="inline-block text-xl text-gray-300 font-semibold tracking-wide"
+          className="inline-block text-xl text-yellow-200 font-semibold tracking-wide"
         >
-          🚀 LED SIGN BOARDS • 3D LETTERS • SHOP BRANDING • FLEX PRINTING • ACRYLIC BOARDS • DIGITAL SIGNAGE • ONE-WAY VISION • NEON LIGHTS • BRANDING SOLUTIONS •{" "}
+          🚀 LED SIGN BOARDS • 3D LETTERS • SHOP BRANDING • FLEX PRINTING • ACRYLIC BOARDS • DIGITAL SIGNAGE • ONE-WAY VISION • NEON LIGHTS • BRANDING SOLUTIONS •{' '}
         </motion.div>
+      </div>
+      <div className="relative min-h-screen px-6 py-20 overflow-hidden flex items-center justify-center">
+        {/* Animated Gradient Background Overlays */}
+        <div className="absolute top-0 left-0 w-80 h-80 bg-gradient-to-br from-red-500/30 to-yellow-400/20 rounded-full blur-3xl animate-pulse z-0"></div>
+        <div className="absolute bottom-0 right-0 w-[32rem] h-[32rem] bg-gradient-to-tr from-yellow-400/20 to-pink-500/20 rounded-full blur-3xl animate-pulse z-0"></div>
+
+        {/* Glassmorphic Card */}
+        <div className="glass relative z-10 max-w-3xl w-full mx-auto p-10 md:p-16 flex flex-col items-center shadow-2xl border border-white/10">
+          {/* Back Button */}
+          <Link href="/" className="absolute top-6 left-6 z-20">
+            <div className="flex items-center gap-2 bg-black/60 backdrop-blur-lg px-4 py-2 rounded-full hover:bg-red-500/80 hover:text-white transition border border-white/10 shadow-lg">
+              <ArrowLeft size={18} className="text-yellow-400" />
+              <span className="text-sm font-semibold">Back to Home</span>
+            </div>
+          </Link>
+
+          {/* Heading */}
+          <motion.h1
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-5xl font-extrabold text-center mb-4 bg-gradient-to-r from-red-500 via-yellow-400 to-pink-500 bg-clip-text text-transparent drop-shadow-lg"
+          >
+            About <span className="text-yellow-400">JSM Advertising</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-gray-200 text-center max-w-2xl mx-auto text-lg font-medium mb-6"
+          >
+            We are a creative advertising & signage company based in Lahore.<br />
+            <span className="text-red-400 font-semibold">LED Boards, Signage, 3D Letters, Acrylic Boards, Branding & Digital Printing.</span><br />
+            Delivering powerful designs for <span className="text-yellow-400 font-bold">10+ years!</span>
+          </motion.p>
+
+          {/* Animated Services Strip */}
+          <div className="mt-10 overflow-hidden whitespace-nowrap border-y border-white/10 py-4 w-full">
+            <motion.div
+              animate={{ x: ["0%", "-100%"] }}
+              transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
+              className="inline-block text-xl text-gray-100 font-semibold tracking-wide"
+            >
+              🚀 LED SIGN BOARDS • 3D LETTERS • SHOP BRANDING • FLEX PRINTING • ACRYLIC BOARDS • DIGITAL SIGNAGE • ONE-WAY VISION • NEON LIGHTS • BRANDING SOLUTIONS •{' '}
+            </motion.div>
+          </div>
+        </div>
       </div>
 
       {/* Cards Section */}
@@ -175,6 +238,6 @@ export default function AboutPage() {
           </motion.button>
         </Link>
       </div>
-    </div>
+    </section>
   );
 }
