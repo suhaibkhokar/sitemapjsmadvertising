@@ -139,10 +139,10 @@ export default function ServicesPage() {
         ))}
       </div>
 
-      {/* IMAGE GALLERY SECTION - Animated Card Grid */}
-      <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto my-20 sm:my-28">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-10 text-blue-400 text-center drop-shadow-lg">Our Work Gallery</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      {/* IMAGE GALLERY SECTION - Fully Responsive Animated Card Grid */}
+      <div className="px-2 sm:px-4 md:px-8 max-w-7xl mx-auto my-16 sm:my-24">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 text-blue-400 text-center drop-shadow-lg">Our Work Gallery</h2>
+        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
           {[
             "/workimages9.jpg",
             "/workimages3.jpeg",
@@ -159,8 +159,7 @@ export default function ServicesPage() {
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.5, delay: i * 0.10 }}
-              className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-blue-400/20 bg-gradient-to-br from-blue-900/60 via-black/60 to-pink-900/40 group hover:scale-105 transition-all duration-300 min-h-[220px] flex items-end"
-              style={{ aspectRatio: '1/1' }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-blue-400/20 bg-gradient-to-br from-blue-900/60 via-black/60 to-pink-900/40 group hover:scale-105 transition-all duration-300 flex items-end min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:min-h-[220px]"
             >
               <Image
                 src={img}
@@ -169,8 +168,8 @@ export default function ServicesPage() {
                 className="object-cover group-hover:scale-110 transition duration-500"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
-              <div className="relative w-full p-4 bg-black/60 backdrop-blur-xl rounded-b-2xl z-10 flex items-center justify-center">
-                <span className="text-white text-base font-semibold bg-gradient-to-r from-blue-400 via-yellow-400 to-pink-500 bg-clip-text text-transparent">Gallery Work</span>
+              <div className="relative w-full p-3 sm:p-4 bg-black/60 backdrop-blur-xl rounded-b-2xl z-10 flex items-center justify-center">
+                <span className="text-white text-xs sm:text-sm md:text-base font-semibold bg-gradient-to-r from-blue-400 via-yellow-400 to-pink-500 bg-clip-text text-transparent">Gallery Work</span>
               </div>
             </motion.div>
           ))}
