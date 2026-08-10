@@ -2,199 +2,257 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { X, Star } from "lucide-react";
+import { X, Star, Heart, ArrowRight, LayoutGrid, PanelTop, Gamepad2, Monitor, Waypoints, Store } from "lucide-react";
 
 export default function PortfolioSection() {
   const projects = [
-    { src: "/portfoliowork.jpeg", name: "3D Board", desc: "Premium 3D sign board, expertly crafted with high-grade materials.", rating: 5 },
-    { src: "/worksimage1.jpeg", name: "Neon Board", desc: "Bright neon signage for outdoor and indoor branding with long-lasting glow.", rating: 5 },
-    { src: "/workimages2.jpeg", name: "Neon Board", desc: "Custom neon designs tailored for shop branding.", rating: 4 },
-    { src: "/workimages3.jpeg", name: "Neon Board", desc: "Vibrant neon boards for high-impact visuals.", rating: 5 },
-    { src: "/workimages4.jpeg", name: "Neon Board", desc: "Durable neon signage with professional installation.", rating: 5 },
-    { src: "/workimages5.jpeg", name: "3D Board", desc: "High-quality 3D boards for offices and shops.", rating: 5 },
-    { src: "/workimages6.jpeg", name: "Neon Board", desc: "Eye-catching neon branding for events and shops.", rating: 4 },
-    { src: "/workimages7.jpeg", name: "Neon Board", desc: "Custom neon letters and logos.", rating: 5 },
-    { src: "/workimages8.jpeg", name: "3D Board", desc: "Modern 3D boards for premium branding.", rating: 5 },
-    { src: "/workimages9.jpg", name: "3D Board", desc: "Expertly designed 3D boards with finishing.", rating: 5 },
-    { src: "/workimages10.webp", name: "3D Board", desc: "High-end 3D boards with strong durability.", rating: 5 },
-    { src: "/workimages11.webp", name: "3D SMD Board", desc: "Premium 3D signage with professional installation.", rating: 5 },
-        { src: "/expo.jpeg", name: "Expo Center Project", desc: "Modern 3D boards for premium branding.", rating: 5 },
-    { src: "/expo1.jpeg", name: "Expo Center Project", desc: "Expertly designed 3D boards with finishing.", rating: 5 },
-    { src: "/expo4.jpeg", name: "Expo Center Project", desc: "High-end 3D boards with strong durability.", rating: 5 },
-    { src: "/expo5.jpeg", name: "Expo Center Project", desc: "Premium 3D signage with professional installation.", rating: 5 },
+    { src: "/portfoliowork.jpeg", name: "3D Board", desc: "Premium 3D sign board, expertly crafted with high-grade materials.", rating: 5, category: "3D Letters" },
+    { src: "/worksimage1.jpeg", name: "Neon Board", desc: "Bright neon signage for outdoor and indoor branding with long-lasting glow.", rating: 5, category: "Neon Signs" },
+    { src: "/workimages2.jpeg", name: "Neon Board", desc: "Custom neon designs tailored for shop branding.", rating: 4, category: "Neon Signs" },
+    { src: "/workimages3.jpeg", name: "Neon Board", desc: "Vibrant neon boards for high-impact visuals.", rating: 5, category: "Neon Signs" },
+    { src: "/workimages4.jpeg", name: "Neon Board", desc: "Durable neon signage with professional installation.", rating: 5, category: "Neon Signs" },
+    { src: "/workimages5.jpeg", name: "3D Board", desc: "High-quality 3D boards for offices and shops.", rating: 5, category: "3D Letters" },
+    { src: "/workimages6.jpeg", name: "Neon Board", desc: "Eye-catching neon branding for events and shops.", rating: 4, category: "Neon Signs" },
+    { src: "/workimages7.jpeg", name: "Neon Board", desc: "Custom neon letters and logos.", rating: 5, category: "Neon Signs" },
+    { src: "/workimages8.jpeg", name: "3D Board", desc: "Modern 3D boards for premium branding.", rating: 5, category: "3D Letters" },
+    { src: "/workimages9.jpg", name: "3D Board", desc: "Expertly designed 3D boards with finishing.", rating: 5, category: "3D Letters" },
+    { src: "/workimages10.webp", name: "3D Board", desc: "High-end 3D boards with strong durability.", rating: 5, category: "3D Letters" },
+    { src: "/workimages11.webp", name: "3D SMD Board", desc: "Premium 3D signage with professional installation.", rating: 5, category: "3D Letters" },
+    { src: "/expo.jpeg", name: "Expo Center Project", desc: "Modern 3D boards for premium branding.", rating: 5, category: "3D Letters" },
+    { src: "/expo1.jpeg", name: "Expo Center Project", desc: "Expertly designed 3D boards with finishing.", rating: 5, category: "3D Letters" },
+    { src: "/expo4.jpeg", name: "Expo Center Project", desc: "High-end 3D boards with strong durability.", rating: 5, category: "3D Letters" },
+    { src: "/expo5.jpeg", name: "Expo Center Project", desc: "Premium 3D signage with professional installation.", rating: 5, category: "3D Letters" },
   ];
 
+  const categories = [
+    { name: "All Works", icon: <LayoutGrid size={16} /> },
+    { name: "3D Letters", icon: <PanelTop size={16} /> },
+    { name: "Neon Signs", icon: <Gamepad2 size={16} /> },
+    { name: "LED Boards", icon: <Monitor size={16} /> },
+    { name: "Pylon Signs", icon: <Waypoints size={16} /> },
+    { name: "Outdoor Branding", icon: <Store size={16} /> },
+  ];
+
+  // Category color mapping for badges and borders
+  const categoryColors = {
+    "3D Letters": "bg-red-900/50 text-red-400 border-red-500/50",
+    "Neon Signs": "bg-orange-900/50 text-orange-400 border-orange-500/50",
+    "LED Boards": "bg-cyan-900/50 text-cyan-400 border-cyan-500/50",
+    "Pylon Signs": "bg-purple-900/50 text-purple-400 border-purple-500/50",
+    "Outdoor Branding": "bg-green-900/50 text-green-400 border-green-500/50",
+  };
+
+  const [selectedCategory, setSelectedCategory] = useState("All Works");
   const [selectedProject, setSelectedProject] = useState(null);
 
+  // Filter projects based on selected category
+  const filteredProjects = selectedCategory === "All Works" 
+    ? projects 
+    : projects.filter(p => p.category === selectedCategory);
+
   return (
-    <section id="portfolio" className="mt-24 scroll-mt-24 relative z-10 overflow-hidden">
-      {/* Animated Colorful Layered Backgrounds */}
-      <div className="absolute inset-0 w-full h-full -z-10 pointer-events-none">
-        {/* Layer 1 */}
-        <motion.div
-          className="absolute top-0 left-0 w-full h-40 bg-gradient-to-r from-red-500/30 via-yellow-400/20 to-pink-500/30 blur-2xl animate-pulse"
-          initial={{ x: -200 }}
-          animate={{ x: [0, 100, -100, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
-        />
-        {/* Layer 2 */}
-        <motion.div
-          className="absolute top-32 left-0 w-full h-32 bg-gradient-to-r from-pink-500/20 via-blue-400/20 to-yellow-400/20 blur-2xl animate-pulse"
-          initial={{ x: 100 }}
-          animate={{ x: [-100, 0, 100, -100] }}
-          transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
-        />
-        {/* Layer 3 */}
-        <motion.div
-          className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-r from-yellow-400/20 via-red-500/20 to-pink-500/20 blur-2xl animate-pulse"
-          initial={{ x: 0 }}
-          animate={{ x: [100, -100, 0, 100] }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-        />
-      </div>
-      {/* Elegant Animated Heading */}
+    <section id="portfolio" className="mt-24 scroll-mt-24 relative z-10 overflow-hidden bg-[#020617] min-h-screen pb-20">
+      
+      {/* --- Header Area --- */}
       <motion.div
-        initial={{ opacity: 0, y: 40, scale: 0.95 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ duration: 0.8, type: "spring", stiffness: 80 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="text-center"
+        className="text-center max-w-4xl mx-auto px-4 mb-10"
       >
-        <motion.h3
-          className="text-4xl md:text-5xl font-black tracking-tight text-white drop-shadow-xl relative"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1 }}
+        <motion.h4 
+          className="text-orange-500 font-bold tracking-widest text-sm uppercase mb-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
         >
-          <span className="relative z-10">Our <span className="text-yellow-400">Portfolio</span></span>
-          <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-2/3 h-2 bg-gradient-to-r from-red-500 via-yellow-400 to-pink-500 rounded-full blur-sm opacity-60"></span>
-        </motion.h3>
-        <p className="text-gray-200 mt-3 text-lg font-medium animate-fade-in">
-          A selection of our premium sign boards and outdoor branding work.
-        </p>
-        <div className="mx-auto mt-3 h-[3px] w-32 bg-gradient-to-r from-red-500 via-yellow-400 to-pink-500 rounded-full animate-pulse"></div>
+          Our Portfolio
+        </motion.h4>
+        <motion.h2 
+          className="text-4xl md:text-6xl font-extrabold tracking-tight text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          Our Premium <span className="text-red-500">Portfolio</span>
+        </motion.h2>
+        <motion.p 
+          className="text-gray-400 text-lg mt-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          A collection of our premium sign boards and outdoor branding work.
+        </motion.p>
+        <div className="mx-auto mt-4 h-[2px] w-16 bg-red-500 rounded-full shadow-[0_0_10px_rgba(239,68,68,0.5)]"></div>
       </motion.div>
 
-      {/* Portfolio Grid - Heavy Animated */}
+      {/* --- Filter Buttons --- */}
+      <motion.div 
+        className="flex flex-wrap justify-center gap-3 mb-12 px-4"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={{
+          hidden: { opacity: 0 },
+          visible: { 
+            opacity: 1, 
+            transition: { staggerChildren: 0.1, delayChildren: 0.2 } 
+          }
+        }}
+      >
+        {categories.map((cat) => (
+          <motion.button
+            key={cat.name}
+            variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
+            onClick={() => setSelectedCategory(cat.name)}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-lg border text-sm font-semibold transition-all duration-300 ${
+              selectedCategory === cat.name
+                ? "bg-red-600/20 border-red-500 text-white shadow-[0_0_15px_rgba(239,68,68,0.3)]"
+                : "bg-[#1e293b]/80 border-transparent text-gray-400 hover:bg-[#1e293b] hover:text-white"
+            }`}
+          >
+            {cat.icon}
+            {cat.name}
+          </motion.button>
+        ))}
+      </motion.div>
+
+      {/* --- Portfolio Grid --- */}
       <motion.div
-        className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16"
+        className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-[1400px] mx-auto px-4"
         initial="hidden"
         animate="visible"
         variants={{
           hidden: {},
           visible: {
             transition: {
-              staggerChildren: 0.13,
-              delayChildren: 0.2,
+              staggerChildren: 0.08,
+              delayChildren: 0.1,
             },
           },
         }}
       >
-        {projects.map((project, i) => (
+        {filteredProjects.map((project, i) => {
+          // Determine color scheme based on category
+          const colorClass = categoryColors[project.category] || "bg-gray-800 text-gray-400 border-gray-700";
+          const borderColor = colorClass.split(" ").pop(); // Extract border class
+
+          return (
+            <motion.div
+              key={i}
+              className="group relative rounded-2xl overflow-hidden bg-[#0f172a] border border-[#1e293b] hover:shadow-2xl transition-all duration-500 flex flex-col cursor-pointer"
+              onClick={() => setSelectedProject(project)}
+              variants={{
+                hidden: { opacity: 0, y: 40 },
+                visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 80, damping: 15 } },
+              }}
+              whileHover={{ y: -5, borderColor: borderColor || "transparent" }}
+            >
+              {/* Image Container */}
+              <div className="relative w-full h-48 overflow-hidden">
+                <motion.img
+                  src={project.src}
+                  alt={project.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                
+                {/* Top Left Category Badge */}
+                <div className={`absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border ${colorClass}`}>
+                  {project.category}
+                </div>
+
+                {/* Top Right Expand Icon */}
+                <div className="absolute top-3 right-3 w-8 h-8 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/70 group-hover:bg-white/20 transition-colors">
+                  <ArrowRight size={14} className="rotate-45" />
+                </div>
+              </div>
+
+              {/* Content Area */}
+              <div className="p-5 flex flex-col flex-1">
+                <h3 className="text-white font-bold text-lg mb-1">{project.name}</h3>
+                <p className="text-gray-400 text-xs mb-4 flex-1 line-clamp-2">{project.desc}</p>
+                
+                {/* Bottom Action Bar */}
+                <div className="flex items-center justify-between pt-3 border-t border-white/5 mt-auto">
+                  <span className="flex items-center gap-1 text-red-400 text-xs font-semibold hover:text-red-300 transition-colors">
+                    View Details <ArrowRight size={14} />
+                  </span>
+                  <button 
+                    className="text-gray-500 hover:text-red-500 transition-colors"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <Heart size={18} className="hover:fill-current" />
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+
+      {/* --- Modal --- */}
+      <AnimatePresence>
+        {selectedProject && (
           <motion.div
-            key={i}
-            className="group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer border-2 border-transparent hover:border-yellow-400 bg-gradient-to-br from-gray-900 via-gray-800 to-black hover:shadow-yellow-400/40 transition-all duration-500"
-            onClick={() => setSelectedProject(project)}
-            variants={{
-              hidden: { opacity: 0, y: 60, scale: 0.95 },
-              visible: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 80, damping: 12 } },
-            }}
-            whileHover={{ scale: 1.07, rotate: 1 }}
-            whileTap={{ scale: 0.97, rotate: -2 }}
-            style={{ boxShadow: '0 8px 32px 0 rgba(255, 234, 0, 0.10)' }}
+            className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 p-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
           >
             <motion.div
-              className="absolute inset-0 z-0 pointer-events-none"
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
+              className="bg-[#0f172a] rounded-2xl shadow-2xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden border border-red-500/30"
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3, type: 'spring' }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-full h-full bg-gradient-to-br from-yellow-400/10 via-pink-500/10 to-red-500/10 blur-2xl opacity-60 animate-pulse"></div>
-            </motion.div>
-            <motion.img
-              src={project.src}
-              alt={project.name}
-              className="w-full h-56 object-cover rounded-t-3xl group-hover:scale-110 transition-transform duration-700 shadow-lg"
-              whileHover={{ scale: 1.12, rotate: 2 }}
-              transition={{ type: 'spring', stiffness: 200 }}
-            />
-            <div className="bg-gray-950 rounded-b-3xl py-4 text-center shadow-inner border-t border-yellow-400/10">
-              <h4 className="text-yellow-400 font-extrabold text-lg tracking-wide drop-shadow-lg animate-pulse">{project.name}</h4>
-              <p className="text-gray-300 text-xs mt-1 mb-2 min-h-[40px]">{project.desc}</p>
-              <div className="flex items-center justify-center gap-1 mb-1">
-                {Array.from({ length: project.rating }).map((_, idx) => (
-                  <Star key={idx} size={16} className="text-yellow-400 drop-shadow" />
-                ))}
+              {/* Left: Image */}
+              <div className="w-full md:w-3/5 h-64 md:h-auto relative overflow-hidden bg-gray-900">
+                <img
+                  src={selectedProject.src}
+                  alt={selectedProject.name}
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+                {/* Overlay Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] to-transparent opacity-60 md:hidden"></div>
               </div>
-            </div>
-            <motion.div
-              className="absolute top-3 right-3 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full shadow-lg opacity-80 group-hover:scale-110 transition-transform duration-300"
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
-            >
-              Featured
+
+              {/* Right: Details */}
+              <div className="w-full md:w-2/5 p-8 flex flex-col justify-between bg-[#0f172a] text-white relative">
+                <button
+                  className="absolute top-4 right-4 text-gray-400 hover:text-white bg-black/30 p-1 rounded-full transition-colors"
+                  onClick={() => setSelectedProject(null)}
+                >
+                  <X size={24} />
+                </button>
+
+                <div>
+                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border ${categoryColors[selectedProject.category] || "bg-gray-800 text-gray-400 border-gray-700"}`}>
+                    {selectedProject.category}
+                  </div>
+                  <h2 className="text-3xl font-bold mb-2">{selectedProject.name}</h2>
+                  <p className="text-gray-400 text-sm mb-6 leading-relaxed">{selectedProject.desc}</p>
+
+                  <div className="flex items-center gap-1 mb-6">
+                    <span className="text-xs text-gray-500 mr-2">Rating:</span>
+                    {Array.from({ length: selectedProject.rating }).map((_, idx) => (
+                      <Star key={idx} size={16} className="text-yellow-400 fill-yellow-400" />
+                    ))}
+                  </div>
+                </div>
+
+                <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(239,68,68,0.3)] hover:shadow-[0_0_25px_rgba(239,68,68,0.5)] text-sm w-full">
+                  Request Quote
+                </button>
+              </div>
             </motion.div>
           </motion.div>
-        ))}
-      </motion.div>
-
-      {/* Modal */}
-      {/* Compact Modal */}
-<AnimatePresence>
-  {selectedProject && (
-    <motion.div
-      className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={() => setSelectedProject(null)}
-    >
-      <motion.div
-        className="bg-gray-900 rounded-2xl shadow-2xl max-w-3xl w-full flex flex-col md:flex-row overflow-hidden border border-red-500"
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.8, opacity: 0 }}
-        transition={{ duration: 0.3 }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Left: Image */}
-        <div className="w-full md:w-1/2 h-48 md:h-auto relative overflow-hidden">
-          <img
-            src={selectedProject.src}
-            alt={selectedProject.name}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-
-        {/* Right: Details */}
-        <div className="w-full md:w-1/2 p-4 flex flex-col justify-between bg-gray-950 text-white">
-          <div className="flex justify-between items-start mb-2">
-            <h2 className="text-xl font-bold">{selectedProject.name}</h2>
-            <button
-              className="text-white p-1 rounded-full hover:bg-gray-800 transition"
-              onClick={() => setSelectedProject(null)}
-            >
-              <X size={20} />
-            </button>
-          </div>
-
-          <p className="text-gray-300 text-sm mb-2">{selectedProject.desc}</p>
-
-          <div className="flex items-center gap-1 mb-3">
-            {Array.from({ length: selectedProject.rating }).map((_, idx) => (
-              <Star key={idx} size={16} className="text-yellow-400" />
-            ))}
-          </div>
-
-          <button className="bg-red-500 hover:bg-yellow-500 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300 self-start text-sm">
-            Request Quote
-          </button>
-        </div>
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+        )}
+      </AnimatePresence>
 
     </section>
   );
