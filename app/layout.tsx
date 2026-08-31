@@ -68,6 +68,12 @@ export default function RootLayout({
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
+
+        <Script
+  src="https://cdn.zanderio.ai/widget/loader.js"
+  data-id="wdg_8qxVRQGxw0Yw6Cg9TzPr9P5h"
+  strategy="lazyOnload"
+/>
       </body>
     </html>
   );
