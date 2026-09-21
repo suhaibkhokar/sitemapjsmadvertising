@@ -64,6 +64,11 @@ export default function RootLayout({
             gtag('config', 'G-VFB5PWFZVP');
           `}
         </Script>
+        <Script
+          src="https://cdn.zanderio.ai/widget/loader.js"
+          data-id="wdg_xDmdiB73gPhKu3HFmpb7d5q6"
+          strategy="afterInteractive"
+        />
       </head>
 
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
