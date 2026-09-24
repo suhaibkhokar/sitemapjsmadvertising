@@ -64,6 +64,11 @@ export default function RootLayout({
             gtag('config', 'G-VFB5PWFZVP');
           `}
         </Script>
+        <Script
+          src="https://cdn.zanderio.ai/widget/loader.js"
+          data-id="wdg_OpXNm56FjOszVuVXJ5ln5VQM"
+          strategy="afterInteractive"
+        />
        
       </head>
 
@@ -71,5 +76,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  );
+  )
 }
