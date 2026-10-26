@@ -123,7 +123,7 @@ export default function PicturesPage() {
       </motion.h2>
 
       <motion.div
-        className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-20 relative z-10"
+        className="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -148,11 +148,13 @@ export default function PicturesPage() {
             className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl shadow-2xl overflow-hidden group border-2 border-yellow-400/20 hover:shadow-yellow-400/40 transition-all duration-500"
             style={{ boxShadow: '0 8px 32px 0 rgba(255, 234, 0, 0.10)' }}
           >
-            <img
-              src={img}
-              alt="Stairs Glass Plotter"
-              className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
-            />
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <img
+                src={img}
+                alt="Stairs Glass Plotter"
+                className="absolute inset-0 h-full w-full bg-gray-950 object-contain group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
             <div className="p-3 text-center">
               <h3 className="font-semibold text-yellow-400">
                 Stairs Glass Plotter
@@ -174,7 +176,7 @@ export default function PicturesPage() {
       </motion.h2>
 
       <motion.div
-        className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-20 relative z-10"
+        className="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -199,11 +201,13 @@ export default function PicturesPage() {
             className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl shadow-2xl overflow-hidden group border-2 border-pink-400/20 hover:shadow-pink-400/40 transition-all duration-500"
             style={{ boxShadow: '0 8px 32px 0 rgba(236, 72, 153, 0.10)' }}
           >
-            <img
-              src={img}
-              alt="Neon Sign Board"
-              className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
-            />
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <img
+                src={img}
+                alt="Neon Sign Board"
+                className="absolute inset-0 h-full w-full bg-gray-950 object-contain group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
             <div className="p-3 text-center">
               <h3 className="font-semibold text-pink-400 tracking-wide drop-shadow-[0_0_8px_rgba(236,72,153,0.9)]">
                 Neon Sign Board
@@ -225,7 +229,7 @@ export default function PicturesPage() {
 
 
       <motion.div
-        className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-20 relative z-10"
+        className="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -250,11 +254,13 @@ export default function PicturesPage() {
             className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl shadow-2xl overflow-hidden group border-2 border-blue-400/20 hover:shadow-blue-400/40 transition-all duration-500"
             style={{ boxShadow: '0 8px 32px 0 rgba(59, 130, 246, 0.10)' }}
           >
-            <img
-              src={img}
-              alt="Expo Center Project"
-              className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
-            />
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
+              <img
+                src={img}
+                alt="Expo Center Project"
+                className="absolute inset-0 h-full w-full bg-gray-950 object-contain group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
             <div className="p-3 text-center">
               <h3 className="font-semibold text-blue-400">
                 Expo Center Project
@@ -276,7 +282,7 @@ export default function PicturesPage() {
             {section.title}
           </motion.h2>
           <motion.div
-            className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-20 relative z-10"
+            className="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
             initial="hidden"
             animate="visible"
             variants={{
@@ -296,11 +302,13 @@ export default function PicturesPage() {
                 className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl shadow-2xl overflow-hidden group border-2 border-green-400/20 hover:shadow-green-400/40 transition-all duration-500"
                 style={{ boxShadow: '0 8px 32px 0 rgba(34, 197, 94, 0.10)' }}
               >
-                <img
-                  src={img}
-                  alt={section.title}
-                  className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
-                />
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <img
+                    src={img}
+                    alt={section.title}
+                    className="absolute inset-0 h-full w-full bg-gray-950 object-contain group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
                 <div className="p-3 text-center">
                   <h3 className="font-semibold text-green-400">{section.title}</h3>
                 </div>

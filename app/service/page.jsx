@@ -3,9 +3,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Wrench, PenTool, Lightbulb, Code, Hammer,
-  Layers, Building2, Sparkles, Image as ImgIcon, Monitor,
-  ArrowLeft, Signpost, PanelsTopLeft, Printer
+  ArrowLeft, ArrowUpRight, Building2, Code, Hammer, Layers,
+  Lightbulb, PanelsTopLeft, PenTool, Printer, Signpost, Wrench,
+  Image as ImgIcon,
+  Monitor,
 } from "lucide-react";
 
 export default function ServicesPage() {
@@ -65,148 +66,110 @@ export default function ServicesPage() {
   ];
 
   return (
-    <section className="min-h-screen text-white relative overflow-hidden flex flex-col">
-      {/* Animated Colorful Layered Backgrounds */}
-      <div className="absolute inset-0 w-full h-full -z-10 pointer-events-none">
-        <motion.div
-          className="absolute top-0 left-0 w-full h-40 bg-gradient-to-r from-blue-500/30 via-yellow-400/20 to-pink-500/30 blur-2xl animate-pulse"
-          initial={{ x: -200 }}
-          animate={{ x: [0, 100, -100, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
-        />
-        <motion.div
-          className="absolute top-32 left-0 w-full h-32 bg-gradient-to-r from-pink-500/20 via-blue-400/20 to-yellow-400/20 blur-2xl animate-pulse"
-          initial={{ x: 100 }}
-          animate={{ x: [-100, 0, 100, -100] }}
-          transition={{ duration: 16, repeat: Infinity, ease: 'linear' }}
-        />
-        <motion.div
-          className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-r from-yellow-400/20 via-blue-500/20 to-pink-500/20 blur-2xl animate-pulse"
-          initial={{ x: 0 }}
-          animate={{ x: [100, -100, 0, 100] }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
-        />
-      </div>
-
-      {/* HERO IMAGE & Animated Heading */}
-      <div className="relative w-full h-[320px] sm:h-[400px] md:h-[480px] lg:h-[540px] mb-16 flex items-center justify-center">
+    <main className="min-h-screen bg-[#f3f4ef] text-[#18221c]">
+      <section className="relative isolate min-h-[500px] overflow-hidden bg-[#17221c] text-white md:min-h-[560px]">
         <Image
           src="/homepage first.webp"
-          alt="Services Banner"
+          alt="JSM Advertising signage and branding work"
           fill
-          className="object-cover opacity-80 rounded-b-3xl"
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover object-center opacity-55"
         />
-        <div className="absolute inset-0 bg-black/60 rounded-b-3xl"></div>
+        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#101914]/95 via-[#101914]/75 to-[#101914]/20" />
 
-        <Link href="/" className="absolute top-6 left-6 z-20 flex items-center gap-2 bg-black/80 px-4 py-2 rounded-full shadow-lg border border-blue-400/30 hover:bg-blue-400 hover:text-black transition">
-          <ArrowLeft size={18} className="text-blue-400" />
-          <span className="text-sm font-semibold">Back</span>
-        </Link>
-
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4 sm:px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: -30, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, type: "spring", stiffness: 80 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white drop-shadow-xl relative mb-4"
-          >
-            <span className="relative z-10">Our <span className="text-blue-400">Services</span></span>
-            <span className="absolute left-1/2 -translate-x-1/2 bottom-0 w-2/3 h-2 bg-gradient-to-r from-blue-500 via-yellow-400 to-pink-500 rounded-full blur-sm opacity-60"></span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            className="text-gray-200 mt-3 max-w-md sm:max-w-xl md:max-w-2xl text-base sm:text-lg font-medium"
-          >
-            Complete signage, branding, interior & digital solutions under one roof.
-          </motion.p>
-        </div>
-      </div>
-
-      {/* SERVICE GRID - Heavy Animated Image Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 sm:px-6 lg:px-8 mt-8">
-        {services.map((item, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 60, scale: 0.92 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.7, delay: index * 0.12 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-blue-400/30 group hover:scale-105 hover:shadow-blue-400/30 transition-all duration-300 bg-gradient-to-br from-blue-900/60 via-black/60 to-pink-900/40"
-            style={{ minHeight: 340 }}
-          >
-            <Image
-              src={item.img}
-              alt={item.title}
-              fill
-              className="object-cover opacity-80 group-hover:scale-110 transition duration-500"
-            />
-            <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-all duration-300"></div>
-            <div className="absolute top-6 left-6 z-10 flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 via-yellow-400 to-pink-500 shadow-lg border-2 border-white/20">
-              {item.icon}
-            </div>
-            <div className="absolute bottom-0 left-0 w-full p-6 bg-black/60 backdrop-blur-xl rounded-b-3xl z-10">
-              <h2 className="text-2xl font-extrabold text-white mb-2 drop-shadow-lg">{item.title}</h2>
-              <p className="text-gray-200 text-base font-medium mb-1">{item.desc}</p>
-              <div className="h-1 w-20 bg-gradient-to-r from-blue-400 via-yellow-400 to-pink-500 rounded-full mt-3 animate-pulse"></div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* IMAGE GALLERY SECTION - Fully Responsive Animated Card Grid */}
-      <div className="px-2 sm:px-4 md:px-8 max-w-7xl mx-auto my-16 sm:my-24">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-10 text-blue-400 text-center drop-shadow-lg">Our Work Gallery</h2>
-        <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-8">
-          {[
-            "/workimages9.jpg",
-            "/workimages3.jpeg",
-            "/workimages8.jpeg",
-            "/expo1.jpeg",
-            "/homepageportfolio.jpeg",
-            "/workimages10.webp",
-            "/expo4.jpeg",
-            "/workimages5.jpeg",
-            "/homepage first.webp"
-          ].map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 40, scale: 0.95 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.5, delay: i * 0.10 }}
-              className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-blue-400/20 bg-gradient-to-br from-blue-900/60 via-black/60 to-pink-900/40 group hover:scale-105 transition-all duration-300 flex items-end min-h-[160px] sm:min-h-[180px] md:min-h-[200px] lg:min-h-[220px]"
-            >
-              <Image
-                src={img}
-                alt="Gallery Work"
-                fill
-                className="object-cover group-hover:scale-110 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
-              <div className="relative w-full p-3 sm:p-4 bg-black/60 backdrop-blur-xl rounded-b-2xl z-10 flex items-center justify-center">
-                <span className="text-white text-xs sm:text-sm md:text-base font-semibold bg-gradient-to-r from-blue-400 via-yellow-400 to-pink-500 bg-clip-text text-transparent">Gallery Work</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
-      {/* FINAL CTA - Animated Button */}
-      <div className="text-center py-16 sm:py-20">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-        >
-          <Link
-            href="/contact"
-            className="bg-gradient-to-r from-blue-500 via-yellow-400 to-pink-500 hover:from-pink-500 hover:to-blue-500 transition px-10 sm:px-14 py-4 sm:py-5 rounded-2xl text-lg sm:text-2xl font-bold shadow-2xl text-black animate-pulse"
-          >
-            Contact Us For Your Project
+        <div className="mx-auto flex min-h-[500px] max-w-7xl flex-col px-5 pb-12 pt-6 sm:px-8 md:min-h-[560px] md:px-12 md:pb-16">
+          <Link href="/" className="inline-flex w-fit items-center gap-2 text-sm font-semibold text-white/80 transition hover:text-white">
+            <ArrowLeft size={17} /> Home
           </Link>
-        </motion.div>
-      </div>
-    </section>
+
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65 }}
+            className="mt-auto max-w-3xl pb-4"
+          >
+            <p className="mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-[#d8f36a]">
+              <span className="h-px w-8 bg-[#d8f36a]" /> JSM Advertising / Services
+            </p>
+            <h1 className="max-w-2xl text-5xl font-black leading-[1.02] sm:text-6xl md:text-7xl">
+              Built to be <span className="text-[#d8f36a]">seen.</span>
+            </h1>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
+              Signage, spaces and graphics made to put your brand in the right light.
+            </p>
+            <a href="#service-list" className="mt-8 inline-flex items-center gap-2 border-b border-[#d8f36a] pb-2 text-sm font-bold text-white transition hover:text-[#d8f36a]">
+              Explore our capabilities <ArrowUpRight size={17} />
+            </a>
+          </motion.div>
+
+          <div className="mt-8 flex items-center gap-3 border-t border-white/20 pt-4 text-xs font-semibold uppercase tracking-widest text-white/60">
+            <span>Signage</span><span className="text-[#d8f36a]">/</span>
+            <span>Branding</span><span className="text-[#d8f36a]">/</span><span>Print</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="service-list" className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:px-12 md:py-20">
+        <div className="mb-10 grid gap-5 border-b border-[#cbd0c6] pb-8 md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#68756b]">What we do</p>
+            <h2 className="mt-3 max-w-2xl text-3xl font-extrabold leading-tight sm:text-4xl">
+              From one sign to a complete brand environment.
+            </h2>
+          </div>
+          <span className="text-sm font-semibold text-[#68756b]">{String(services.length).padStart(2, "0")} capabilities</span>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+        {services.map((item, index) => (
+          <motion.article
+            key={item.title}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.12 }}
+            transition={{ duration: 0.42, delay: (index % 3) * 0.06 }}
+            className="group overflow-hidden border border-[#d9ddd6] bg-white transition-colors duration-300 hover:border-[#879386]"
+          >
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#e5e8e1]">
+              <Image
+                src={item.img}
+                alt={item.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+              <span className="absolute left-4 top-4 bg-[#d8f36a] px-3 py-1 text-[10px] font-extrabold uppercase tracking-[0.12em] text-[#17221c]">
+                {item.category}
+              </span>
+            </div>
+            <div className="flex min-h-[190px] flex-col p-5 sm:p-6">
+              <div className="mb-4 flex items-center justify-between">
+                <span className="text-xs font-bold tabular-nums text-[#89948b]">{String(index + 1).padStart(2, "0")}</span>
+                <span className="text-[#d54b32]">{item.icon}</span>
+              </div>
+              <h2 className="text-xl font-extrabold leading-snug">{item.title}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-[#5d685f]">{item.desc}</p>
+            </div>
+          </motion.article>
+        ))}
+        </div>
+      </section>
+
+      <section className="bg-[#18221c] text-white">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-5 py-12 sm:px-8 md:flex-row md:items-center md:justify-between md:px-12 md:py-16">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#d8f36a]">Have a project in mind?</p>
+            <h2 className="mt-2 text-3xl font-extrabold sm:text-4xl">Let’s make it visible.</h2>
+          </div>
+          <Link
+            href="/contacts"
+            className="inline-flex w-fit items-center gap-3 bg-[#d8f36a] px-6 py-3.5 text-sm font-extrabold text-[#17221c] transition hover:bg-white"
+          >
+            Talk to our team <ArrowUpRight size={18} />
+          </Link>
+        </div>
+      </section>
+    </main>
   );
 }
