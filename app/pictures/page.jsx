@@ -31,6 +31,12 @@ export default function PicturesPage() {
   "/expo4.jpeg",
   "/expo5.jpeg",
 ];
+
+  const roadDirectionSignImages = [
+    "/Road Direction Sign.png",
+    "/Road Direction Sign2.png",
+    "/Road Direction SIgn3.png",
+  ];
   return (
 
     <div className="relative min-h-screen text-white px-4 sm:px-8 py-16 overflow-hidden flex flex-col items-center">
@@ -235,6 +241,57 @@ export default function PicturesPage() {
             <div className="p-3 text-center">
               <h3 className="font-semibold text-blue-400">
                 Expo Center Project
+              </h3>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* ================= Road Direction Sign Board ================= */}
+      <motion.h2
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-2xl font-bold text-green-500 mb-6 border-l-4 border-green-500 pl-4 relative z-10"
+      >
+        Road Direction Sign Board
+      </motion.h2>
+
+      <motion.div
+        className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-20 relative z-10"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.13,
+              delayChildren: 0.2,
+            },
+          },
+        }}
+      >
+        {roadDirectionSignImages.map((img, i) => (
+          <motion.div
+            key={i}
+            variants={{
+              hidden: { opacity: 0, y: 30, scale: 0.95 },
+              visible: { opacity: 1, y: 0, scale: 1, transition: { type: 'spring', stiffness: 80, damping: 12 } },
+            }}
+            whileHover={{ scale: 1.07, rotate: 1 }}
+            whileTap={{ scale: 0.97, rotate: -2 }}
+            className="bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl shadow-2xl overflow-hidden group border-2 border-green-400/20 hover:shadow-green-400/40 transition-all duration-500"
+            style={{ boxShadow: '0 8px 32px 0 rgba(34, 197, 94, 0.10)' }}
+          >
+            <img
+              src={img}
+              alt="Road Direction Sign Board"
+              className="w-full h-56 object-cover group-hover:scale-110 transition-transform duration-700"
+            />
+            <div className="p-3 text-center">
+              <h3 className="font-semibold text-green-400">
+                Road Direction Sign Board
               </h3>
             </div>
           </motion.div>

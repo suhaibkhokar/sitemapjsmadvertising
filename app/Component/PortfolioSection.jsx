@@ -22,6 +22,9 @@ export default function PortfolioSection() {
     { src: "/expo1.jpeg", name: "Expo Center Project", desc: "Expertly designed 3D boards with finishing.", rating: 5, category: "3D Letters" },
     { src: "/expo4.jpeg", name: "Expo Center Project", desc: "High-end 3D boards with strong durability.", rating: 5, category: "3D Letters" },
     { src: "/expo5.jpeg", name: "Expo Center Project", desc: "Premium 3D signage with professional installation.", rating: 5, category: "3D Letters" },
+    { src: "/Road Direction Sign.png", name: "Road Direction Sign Board", desc: "Road direction sign board installation.", rating: 5, category: "Outdoor Branding" },
+    { src: "/Road Direction Sign2.png", name: "Road Direction Sign Board", desc: "Road direction sign board installation.", rating: 5, category: "Outdoor Branding" },
+    { src: "/Road Direction SIgn3.png", name: "Road Direction Sign Board", desc: "Road direction sign board installation.", rating: 5, category: "Outdoor Branding" },
   ];
 
   const categories = [
