@@ -5,7 +5,7 @@ import Link from "next/link";
 import {
   Wrench, PenTool, Lightbulb, Code, Hammer,
   Layers, Building2, Sparkles, Image as ImgIcon, Monitor,
-  ArrowLeft
+  ArrowLeft, Signpost, PanelsTopLeft, Printer
 } from "lucide-react";
 
 export default function ServicesPage() {
@@ -45,6 +45,22 @@ export default function ServicesPage() {
     {
       icon: <Code size={40} />, title: "Website & Online Store", desc: "Business websites, ecommerce stores, SEO & booking systems.",
       img: "/homepage first.webp"
+    },
+    {
+      icon: <Signpost size={40} />, title: "Road Direction Sign Board", desc: "Roadside direction and destination signs built for visibility and durability.",
+      img: "/Road Direction Sign.png"
+    },
+    {
+      icon: <PanelsTopLeft size={40} />, title: "Wall Branding", desc: "Interior wall graphics and branded spaces designed for businesses.",
+      img: "/wall branding.png"
+    },
+    {
+      icon: <Signpost size={40} />, title: "Hoding Sign Board", desc: "Large-format holding boards for outdoor advertising and brand visibility.",
+      img: "/Hoding Sign Board.png"
+    },
+    {
+      icon: <Printer size={40} />, title: "Vinyl Pasting", desc: "Printed vinyl graphics professionally applied to walls, glass and boards.",
+      img: "/Vinyl Pasting.png"
     }
   ];
 

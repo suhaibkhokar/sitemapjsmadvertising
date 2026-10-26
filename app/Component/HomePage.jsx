@@ -1,6 +1,7 @@
 "use client";
 
 import Head from "next/head";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import PortfolioSection from "./PortfolioSection";
 
@@ -11,21 +12,49 @@ export default function HomePage() {
       title: "Sign Board Design & Installation",
       desc: "Custom metal, acrylic and wooden signboards — designed & installed end-to-end.",
       icon: "🪧",
+      image: "/workimages9.jpg",
     },
     {
       title: "LED & Neon Signage",
       desc: "Bright, energy-efficient LED signs and neon-style lights for 24/7 visibility.",
       icon: "💡",
+      image: "/workimages3.jpeg",
     },
     {
       title: "Shop & Building Branding",
       desc: "Full shopfront and fascia branding to make retail and commercial spaces pop.",
       icon: "🏢",
+      image: "/expo1.jpeg",
     },
     {
       title: "Vehicle Graphics",
       desc: "High-impact van and car wraps for moving advertisements.",
       icon: "🚗",
+      image: "/workimages5.jpeg",
+    },
+    {
+      title: "Road Direction Sign Board",
+      desc: "Clear, durable directional signs for roads and destinations.",
+      icon: "🛣️",
+      image: "/Road Direction Sign.png",
+    },
+    {
+      title: "Wall Branding",
+      desc: "Custom wall graphics and branded interior installations.",
+      icon: "🖼️",
+      image: "/wall branding.png",
+    },
+    {
+      title: "Hoding Sign Board",
+      desc: "Large-format holding sign boards for prominent outdoor visibility.",
+      icon: "📍",
+      image: "/Hoding Sign Board.png",
+    },
+    {
+      title: "Vinyl Pasting",
+      desc: "Printed vinyl graphics applied to walls, glass and sign surfaces.",
+      icon: "🧰",
+      image: "/Vinyl Pasting.png",
     },
   ];
 
@@ -213,9 +242,37 @@ export default function HomePage() {
           </div>
         </header>
 
-      
-          {/* PORTFOLIO */}
-          <PortfolioSection />
+        <section id="services" className="px-6 lg:px-12 py-16 max-w-7xl mx-auto w-full scroll-mt-24">
+          <div className="flex flex-wrap items-end justify-between gap-4 mb-8">
+            <div>
+              <p className="text-orange-400 font-bold uppercase text-sm">What We Do</p>
+              <h2 className="text-3xl md:text-4xl font-bold mt-2">Our Services</h2>
+            </div>
+            <Link href="/service" className="text-sm font-semibold text-orange-300 hover:text-white transition-colors">
+              View all services
+            </Link>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {services.map((service) => (
+              <motion.article
+                key={service.title}
+                whileHover={{ y: -4 }}
+                className="relative min-h-64 overflow-hidden rounded-xl border border-white/10 bg-gray-900"
+              >
+                <img src={service.image} alt={service.title} className="absolute inset-0 w-full h-full object-cover opacity-65" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <span className="text-2xl" aria-hidden="true">{service.icon}</span>
+                  <h3 className="mt-2 text-lg font-bold">{service.title}</h3>
+                  <p className="mt-1 text-sm text-gray-200 leading-relaxed">{service.desc}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        {/* PORTFOLIO */}
+        <PortfolioSection />
 
       </div>
 

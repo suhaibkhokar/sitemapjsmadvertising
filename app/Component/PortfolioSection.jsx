@@ -25,6 +25,13 @@ export default function PortfolioSection() {
     { src: "/Road Direction Sign.png", name: "Road Direction Sign Board", desc: "Road direction sign board installation.", rating: 5, category: "Outdoor Branding" },
     { src: "/Road Direction Sign2.png", name: "Road Direction Sign Board", desc: "Road direction sign board installation.", rating: 5, category: "Outdoor Branding" },
     { src: "/Road Direction SIgn3.png", name: "Road Direction Sign Board", desc: "Road direction sign board installation.", rating: 5, category: "Outdoor Branding" },
+    { src: "/wall branding.png", name: "Wall Branding", desc: "Custom wall branding and interior graphics.", rating: 5, category: "Outdoor Branding" },
+    { src: "/wall branding2.png", name: "Wall Branding", desc: "Custom wall branding and interior graphics.", rating: 5, category: "Outdoor Branding" },
+    { src: "/wall branding3.png", name: "Wall Branding", desc: "Custom wall branding and interior graphics.", rating: 5, category: "Outdoor Branding" },
+    { src: "/Hoding Sign Board.png", name: "Hoding Sign Board", desc: "Large-format outdoor holding sign board.", rating: 5, category: "Outdoor Branding" },
+    { src: "/Vinyl Pasting.png", name: "Vinyl Pasting", desc: "Professional vinyl printing and pasting.", rating: 5, category: "Outdoor Branding" },
+    { src: "/vinyl pasting2.png", name: "Vinyl Pasting", desc: "Professional vinyl printing and pasting.", rating: 5, category: "Outdoor Branding" },
+    { src: "/vinyl pasting3.png", name: "Vinyl Pasting", desc: "Professional vinyl printing and pasting.", rating: 5, category: "Outdoor Branding" },
   ];
 
   const categories = [
@@ -206,7 +213,7 @@ export default function PortfolioSection() {
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
-              className="bg-[#0f172a] rounded-2xl shadow-2xl max-w-4xl w-full flex flex-col md:flex-row overflow-hidden border border-red-500/30"
+              className="bg-[#0f172a] rounded-2xl shadow-2xl max-w-4xl w-full h-[90vh] max-h-[720px] flex flex-col md:flex-row overflow-hidden border border-red-500/30"
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -214,18 +221,18 @@ export default function PortfolioSection() {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Left: Image */}
-              <div className="w-full md:w-3/5 h-64 md:h-auto relative overflow-hidden bg-gray-900">
+              <div className="w-full h-[36%] md:h-full md:w-3/5 md:flex-none relative overflow-hidden bg-gray-900">
                 <img
                   src={selectedProject.src}
                   alt={selectedProject.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain"
                 />
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] to-transparent opacity-60 md:hidden"></div>
               </div>
 
               {/* Right: Details */}
-              <div className="w-full md:w-2/5 p-8 flex flex-col justify-between bg-[#0f172a] text-white relative">
+              <div className="w-full md:w-2/5 p-6 md:p-8 flex flex-col justify-between bg-[#0f172a] text-white relative min-h-0 overflow-y-auto">
                 <button
                   className="absolute top-4 right-4 text-gray-400 hover:text-white bg-black/30 p-1 rounded-full transition-colors"
                   onClick={() => setSelectedProject(null)}
