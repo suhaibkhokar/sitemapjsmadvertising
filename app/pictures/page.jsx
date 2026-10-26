@@ -123,7 +123,7 @@ export default function PicturesPage() {
       </motion.h2>
 
       <motion.div
-        className="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
+        className="grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -176,7 +176,7 @@ export default function PicturesPage() {
       </motion.h2>
 
       <motion.div
-        className="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
+        className="grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -229,7 +229,7 @@ export default function PicturesPage() {
 
 
       <motion.div
-        className="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
+        className="grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
         initial="hidden"
         animate="visible"
         variants={{
@@ -282,7 +282,7 @@ export default function PicturesPage() {
             {section.title}
           </motion.h2>
           <motion.div
-            className="grid w-full max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
+            className="grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 md:gap-8 mb-20 relative z-10"
             initial="hidden"
             animate="visible"
             variants={{
