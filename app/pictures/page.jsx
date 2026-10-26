@@ -152,7 +152,7 @@ export default function PicturesPage() {
               <img
                 src={img}
                 alt="Stairs Glass Plotter"
-                className="absolute inset-0 h-full w-full bg-gray-950 object-contain group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="p-3 text-center">
@@ -205,7 +205,7 @@ export default function PicturesPage() {
               <img
                 src={img}
                 alt="Neon Sign Board"
-                className="absolute inset-0 h-full w-full bg-gray-950 object-contain group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="p-3 text-center">
@@ -258,7 +258,7 @@ export default function PicturesPage() {
               <img
                 src={img}
                 alt="Expo Center Project"
-                className="absolute inset-0 h-full w-full bg-gray-950 object-contain group-hover:scale-105 transition-transform duration-700"
+                className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>
             <div className="p-3 text-center">
@@ -306,7 +306,7 @@ export default function PicturesPage() {
                   <img
                     src={img}
                     alt={section.title}
-                    className="absolute inset-0 h-full w-full bg-gray-950 object-contain group-hover:scale-105 transition-transform duration-700"
+                    className="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
                 <div className="p-3 text-center">
