@@ -213,7 +213,7 @@ export default function PortfolioSection() {
             onClick={() => setSelectedProject(null)}
           >
             <motion.div
-              className="bg-[#0f172a] rounded-2xl shadow-2xl max-w-4xl w-full h-[90vh] max-h-[720px] flex flex-col md:flex-row overflow-hidden border border-red-500/30"
+              className="bg-[#0f172a] rounded-2xl shadow-2xl max-w-4xl w-full h-[min(84vh,680px)] md:h-[min(72vh,520px)] max-h-[calc(100dvh-2rem)] flex flex-col md:flex-row overflow-hidden border border-red-500/30"
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
